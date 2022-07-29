@@ -23,6 +23,8 @@ let loadedparams = sessionStorage.getItem("params");
 //   Y: 0.0,
 // });
 
+export const showInfo = writable(false);
+
 export const canvasses = writable({
   manset: {},
   jPreview: {},

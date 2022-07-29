@@ -1,6 +1,12 @@
 <script>
   import { element, onMount } from "svelte/internal";
-  import { state, shufflePoints, canvasses, workers } from "./stores.js";
+  import {
+    showInfo,
+    state,
+    shufflePoints,
+    canvasses,
+    workers,
+  } from "./stores.js";
   import { createEventDispatcher } from "svelte";
   import {
     asdf,
@@ -30,8 +36,7 @@
   let w;
   let md = false;
   let mouseTarget;
-  let settingsOpen = true;
-  let showInfo = false;
+  let settingsOpen = false;
 
   let handlers = {
     "res-touch": sliderUpHandler,
@@ -96,7 +101,7 @@
     parameterChange();
   }
   function infoUpHandler(e) {
-    showInfo = !showInfo;
+    $showInfo = !$showInfo;
   }
 
   function downloadUpHandler(e) {
@@ -193,31 +198,31 @@
   <div
     title="Re-center"
     id="center-touch"
-    class="UI-atom"
+    class="UI-atom icon-container"
     class:md-button={mouseTarget?.id == "center-touch" && md}
   />
   <div
     title="Settings"
     id="toggle-touch"
-    class="UI-atom"
+    class="UI-atom icon-container"
     class:md-button={mouseTarget?.id == "toggle-touch" && md}
   />
   <div
     title="Shuffle"
     id="shuffle-touch"
-    class="UI-atom"
+    class="UI-atom icon-container"
     class:md-button={mouseTarget?.id == "shuffle-touch" && md}
   />
   <div
     title="Save image"
     id="download-touch"
-    class="UI-atom"
+    class="UI-atom icon-container"
     class:md-button={mouseTarget?.id == "download-touch" && md}
   />
   <div
     title="Show julia set preview (J)"
     id="julia-touch"
-    class="UI-atom"
+    class="UI-atom icon-container"
     class:hide={$state.params.julia}
     style={$state.params.jPreview
       ? "background-color: hsla(215, 61%, 89%, 0.9)"
@@ -227,8 +232,11 @@
   <div
     title="Info"
     id="info-touch"
-    class="UI-atom"
+    class="UI-atom icon-container"
     class:md-button={mouseTarget?.id == "info-touch" && md}
+    style={$showInfo
+      ? "background-color: hsla(215, 61%, 89%, 0.9)"
+      : "background-color: auto"}
   />
   <div
     title="Switch fractals"
@@ -247,22 +255,6 @@
   </div>
 </div>
 
-<div id="info" class="UI-atom" class:hide={!showInfo}>
-  <h1>Welcome to ----!</h1>
-  <p>Explore the Mandelbrot and Burning Ship fractals.</p>
-  <h4>Controls</h4>
-  <ul>
-    <li>click and drag to move around</li>
-    <li>click the 'j' button to show julia previews</li>
-    <li>
-      shift click on a point to explore its julia set
-      <ul>
-        <li>click on the preview on mobile</li>
-      </ul>
-    </li>
-  </ul>
-</div>
-
 <div
   id="jPreview-wrapper"
   style="--separation: {separation}"
@@ -277,12 +269,6 @@
 </div>
 
 <style>
-  #info {
-    display: inline-block;
-    padding: 1em;
-    font-size: 1.3em;
-    text-align: left;
-  }
   #escape-julia {
     border: 1px solid hsla(215, 61%, 89%, 0.9);
     position: absolute;
@@ -367,6 +353,10 @@
     border-radius: 0.9em;
     border: 1px solid rgba(0, 0, 0, 0.1);
     height: 3.1em;
+    z-index: 2;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    background-position: center;
   }
   .UI-atom:not(.slider-background, #wf-background, #info) {
     width: 3.1em;
@@ -407,5 +397,28 @@
   }
   #jPreview-touch.hide {
     opacity: 0;
+  }
+  #shuffle-touch {
+    background-image: url("icons/shuffle.svg");
+  }
+  #toggle-touch {
+    background-image: url("icons/settings.svg");
+  }
+  #info-touch {
+    background-image: url("icons/info.svg");
+  }
+  #center-touch {
+    background-image: url("icons/crosshairs.svg");
+  }
+  #julia-touch {
+    background-image: url("icons/julia.svg");
+    background-size: 60%;
+  }
+  #download-touch {
+    background-image: url("icons/download.svg");
+  }
+  #escape-julia {
+    background-image: url("icons/left-arrow.svg");
+    background-size: 50%;
   }
 </style>
