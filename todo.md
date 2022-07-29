@@ -1,0 +1,5 @@
+- icons
+- description
+- instructions
+- make settings closed by default
+- deploy to heroku
