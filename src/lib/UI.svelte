@@ -399,26 +399,26 @@
     opacity: 0;
   }
   #shuffle-touch {
-    background-image: url("icons/shuffle.svg");
+    background-image: url("/icons/shuffle.svg");
   }
   #toggle-touch {
-    background-image: url("icons/settings.svg");
+    background-image: url("/icons/settings.svg");
   }
   #info-touch {
-    background-image: url("icons/info.svg");
+    background-image: url("/icons/info.svg");
   }
   #center-touch {
-    background-image: url("icons/crosshairs.svg");
+    background-image: url("/icons/crosshairs.svg");
   }
   #julia-touch {
-    background-image: url("icons/julia.svg");
+    background-image: url("/icons/julia.svg");
     background-size: 60%;
   }
   #download-touch {
-    background-image: url("icons/download.svg");
+    background-image: url("/icons/download.svg");
   }
   #escape-julia {
-    background-image: url("icons/left-arrow.svg");
+    background-image: url("/icons/left-arrow.svg");
     background-size: 50%;
   }
 </style>
