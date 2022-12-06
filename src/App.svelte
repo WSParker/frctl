@@ -1,13 +1,13 @@
 <script>
   import Interface from "./lib/Interface.svelte";
-  import { showInfo, workers, state, canvasses } from "./lib/stores.js";
+  import { showInfo, canvasses } from "./lib/stores.js";
   let iH, iW;
 </script>
 
 <div id="viewport" bind:clientHeight={iH} bind:clientWidth={iW}>
   <div id="content-container" style:width="{iW}px" style:height="{iH}px">
     <div id="info" class="UI-atom" class:hide={!$showInfo}>
-      <h1>Welcome to the fractal explorer!</h1>
+      <h1>Welcome to wisp!</h1>
       <p>Explore the Mandelbrot and Burning Ship fractals.</p>
       <h4>Tips</h4>
       <ul>

@@ -1,10 +1,10 @@
 import "./app.css";
 import App from "./App.svelte";
-import { registerSW } from "virtual:pwa-register";
+// import { registerSW } from "virtual:pwa-register";
 
 if ("serviceWorker" in navigator) {
   // && !/localhost/.test(window.location)) {
-  registerSW();
+  // registerSW();
 }
 
 const app = new App({

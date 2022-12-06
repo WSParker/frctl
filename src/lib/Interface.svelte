@@ -156,15 +156,6 @@
     renderFinal();
   }
 
-  onMount(() => {
-    if ($state.params.jPreview) {
-      $state.params.jPreview = false;
-      $workers.jPreviewWorker = new Worker("/mainworker.js");
-      renderjPreview();
-    }
-    renderFinal();
-  });
-
   const keyupHandler = (e) => {
     if (e.key == "Escape" && $state.params.julia) {
       exitJulia();
@@ -271,6 +262,15 @@
       touchstartHandler(e);
     }
   }
+
+  onMount(() => {
+    if ($state.params.jPreview) {
+      $state.params.jPreview = false;
+      $workers.jPreviewWorker = new Worker("/mainworker.js");
+      renderjPreview();
+    }
+    renderFinal();
+  });
 </script>
 
 <svelte:window

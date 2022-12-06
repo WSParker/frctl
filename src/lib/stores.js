@@ -1,28 +1,5 @@
 import { writable, derived } from "svelte/store";
 
-let loadedstate = sessionStorage.getItem("state");
-let loadedparams = sessionStorage.getItem("params");
-
-// export const state = writable(
-//   loadedstate == null ? defaultState : JSON.parse(loadedstate)
-// );
-
-// export const params = writable(
-//   loadedparams == null ? defaultParams : JSON.parse(loadedparams)
-// );
-
-// export const mouse = writable({
-//   X: 0.0,
-//   Y: 0.0,
-//   down: false,
-//   moved: false,
-// });
-
-// export const touchDist = writable({
-//   X: 0.0,
-//   Y: 0.0,
-// });
-
 export const showInfo = writable(false);
 
 export const canvasses = writable({

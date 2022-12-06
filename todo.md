@@ -1,1 +1,3 @@
-- deploy to heroku
+-   think of name
+    -   change name in package, packagelock, index.html, description (app.svelte), directory
+-   deploy to heroku
