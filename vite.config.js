@@ -4,7 +4,6 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    publicDir: "/public/",
     base: "/frctl/",
     plugins: [svelte(), VitePWA({
         workbox: {

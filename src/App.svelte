@@ -2,6 +2,8 @@
     import Interface from "./lib/Interface.svelte";
     import { showInfo, canvasses } from "./lib/stores.js";
     let iH, iW;
+    const imgUrl = new URL("./lib/icons/julia_inverted.svg", import.meta.url)
+        .href;
 </script>
 
 <div id="viewport" bind:clientHeight={iH} bind:clientWidth={iW}>
@@ -28,7 +30,7 @@
                 <th>Preview Julia Set</th>
                 <td
                     >Click <img
-                        src="/icons/julia_inverted.svg"
+                        src="$imgUrl"
                         alt="Julia Icon"
                         width="16px"
                     /></td

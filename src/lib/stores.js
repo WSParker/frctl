@@ -2,6 +2,8 @@ import { writable, derived } from "svelte/store";
 
 export const showInfo = writable(false);
 
+const workerURL = new URL("./mainworker.js", import.meta.url);
+
 export const canvasses = writable({
   manset: {},
   jPreview: {},
@@ -53,8 +55,8 @@ export const state = writable({
 });
 
 export const workers = writable({
-  finalworker: new Worker("./mainworker.js"),
-  tmpworker: new Worker("./mainworker.js"),
+  finalworker: new Worker(workerURL),
+  tmpworker: new Worker(workerURL),
   jPreviewWorker: {},
 });
 

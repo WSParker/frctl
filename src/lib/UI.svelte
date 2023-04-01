@@ -1,4 +1,5 @@
 <script>
+    const workerURL = new URL("./mainworker.js", import.meta.url);
     import { element, onMount } from "svelte/internal";
     import {
         showInfo,
@@ -62,7 +63,7 @@
         let rect = $canvasses.manset.getBoundingClientRect();
         $state = initializeJulia($state, rect);
         $workers.finalworker?.terminate();
-        $workers.finalworker = new Worker("/mainworker.js");
+        $workers.finalworker = new Worker(workerURL);
         renderFlex($workers.finalworker, $canvasses.manset, $state);
     }
 
@@ -405,26 +406,26 @@
         opacity: 0;
     }
     #shuffle-touch {
-        background-image: url("/icons/shuffle.svg");
+        background-image: url("./icons/shuffle.svg");
     }
     #toggle-touch {
-        background-image: url("/icons/settings.svg");
+        background-image: url("./icons/settings.svg");
     }
     #info-touch {
-        background-image: url("/icons/info.svg");
+        background-image: url("./icons/info.svg");
     }
     #center-touch {
-        background-image: url("/icons/crosshairs.svg");
+        background-image: url("./icons/crosshairs.svg");
     }
     #julia-touch {
-        background-image: url("/icons/julia.svg");
+        background-image: url("./icons/julia.svg");
         /* background-size: 60%; */
     }
     #download-touch {
-        background-image: url("/icons/download.svg");
+        background-image: url("./icons/download.svg");
     }
     #escape-julia {
-        background-image: url("/icons/left-arrow.svg");
+        background-image: url("./icons/left-arrow.svg");
         background-size: 50%;
     }
 </style>
