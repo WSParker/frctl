@@ -4,6 +4,9 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // plugins: [svelte(), VitePWA()],
-  plugins: [svelte()],
+    plugins: [svelte(), VitePWA({
+        workbox: {
+            globPatterns: ['**/*.{js,html,css,svg,ico}']
+        }
+    })],
 });

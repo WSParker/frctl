@@ -176,7 +176,7 @@
     id="UI-wrapper"
     style="--separation: {separation}; --resolution: {resolution}; height: {settingsOpen
         ? 0.75 * w
-        : w}px"
+        : 2 * w}px"
     bind:clientWidth={w}
     on:mousedown|preventDefault|stopPropagation={mouseDownHandler}
     on:touchstart|preventDefault|stopPropagation={touchDownHandler}
@@ -327,7 +327,7 @@
         border: 1px solid hsla(215, 61%, 89%, 0.9);
         grid-area: 3 / 1 / span 1 / span 1;
     }
-    #info-touch {
+    #download-touch {
         grid-area: 3 / 2 / span 1 / span 1;
     }
     .slider-label,
@@ -376,10 +376,11 @@
         user-select: none;
         -webkit-user-select: none;
     }
-    #UI-wrapper.hidden div:not(#toggle-touch) {
+    #UI-wrapper.hidden div:not(#toggle-touch, #info-touch) {
         display: none;
     }
-    #UI-wrapper.hidden #toggle-touch {
+    #UI-wrapper.hidden #toggle-touch,
+    #UI-wrapper.hidden #info-touch {
         border: 1px solid hsla(215, 61%, 89%, 0.9);
     }
     #jPreview-touch {
